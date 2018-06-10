@@ -43,63 +43,64 @@ public class TestTheHistory {
 
         // just change words
         result = runFunctionalityTest(theHistory, sourceText, "replace me", "HAPPY FUN");
+        System.out.println("RESULT1:" + result);
         if (!"replace HAPPY FUN HAPPY FUN me me HAPPY FUN me".equals(result)) {
-            System.out.println("replace() IS NOT WORKING AS EXPECTED!");
+            System.out.println("replace() IS NOT WORKING AS EXPECTED!1");
         }
 
         result = runFunctionalityTest(theHistory, sourceText, "replace", "REPLACE");
         if (!"REPLACE REPLACE me REPLACE me me me REPLACE me me".equals(result)) {
-            System.out.println("replace() IS NOT WORKING AS EXPECTED!");
+            System.out.println("replace() IS NOT WORKING AS EXPECTED!2");
         }
 
         // replace the whole text
         result = runFunctionalityTest(theHistory, sourceText, sourceText, sourceText);
         if (!sourceText.equals(result)) {
-            System.out.println("replace() IS NOT WORKING AS EXPECTED!");
+            System.out.println("replace() IS NOT WORKING AS EXPECTED!3");
         }
 
         // insert new words into the text
         result = runFunctionalityTest(theHistory, sourceText, "me", "HAPPY FUN");
         if (!"replace replace HAPPY FUN replace HAPPY FUN HAPPY FUN HAPPY FUN replace HAPPY FUN HAPPY FUN".equals(result)) {
-            System.out.println("replace() IS NOT WORKING AS EXPECTED!");
+            System.out.println("replace() IS NOT WORKING AS EXPECTED!4");
         }
 
         result = runFunctionalityTest(theHistory, sourceText, "me me", "SUPER HAPPY FUN");
         if (!"replace replace me replace SUPER HAPPY FUN me replace SUPER HAPPY FUN".equals(result)) {
-            System.out.println("replace() IS NOT WORKING AS EXPECTED!");
+            System.out.println("replace() IS NOT WORKING AS EXPECTED!5");
         }
 
         result = runFunctionalityTest(theHistory, sourceText, "me", "SUPER me FUN");
         if (!"replace replace SUPER me FUN replace SUPER me FUN SUPER me FUN SUPER me FUN replace SUPER me FUN SUPER me FUN"
                 .equals(result)) {
-            System.out.println("replace() IS NOT WORKING AS EXPECTED!");
+            System.out.println("replace() IS NOT WORKING AS EXPECTED!6");
         }
 
         result = runFunctionalityTest(theHistory, sourceText, "me replace me", "AWE SUPER HAPPY FUN");
         if (!"replace replace AWE SUPER HAPPY FUN me AWE SUPER HAPPY FUN me".equals(result)) {
-            System.out.println("replace() IS NOT WORKING AS EXPECTED!");
+            System.out.println("replace() IS NOT WORKING AS EXPECTED!7");
         }
 
         // remove words from the text
         result = runFunctionalityTest(theHistory, sourceText, "me me me", "REPLACE");
         if (!"replace replace me replace REPLACE replace me me".equals(result)) {
-            System.out.println("replace() IS NOT WORKING AS EXPECTED!");
+            System.out.println("replace() IS NOT WORKING AS EXPECTED!8");
         }
 
         result = runFunctionalityTest(theHistory, sourceText, "replace replace", "REPLACE");
         if (!"REPLACE me replace me me me replace me me".equals(result)) {
-            System.out.println("replace() IS NOT WORKING AS EXPECTED!");
+            System.out.println("replace() IS NOT WORKING AS EXPECTED!9");
         }
 
         result = runFunctionalityTest(theHistory, sourceText, sourceText, "REPLACE");
         if (!"REPLACE".equals(result)) {
-            System.out.println("replace() IS NOT WORKING AS EXPECTED!");
+            System.out.println("replace() IS NOT WORKING AS EXPECTED!10");
         }
 
         // no match -> nothing changed
         result = runFunctionalityTest(theHistory, sourceText, "cant find", "cant change");
         if (!sourceText.equals(result)) {
-            System.out.println("replace() IS NOT WORKING AS EXPECTED!");
+            System.out.println("replace() IS NOT WORKING AS EXPECTED!11");
         }
     }
 
@@ -159,17 +160,17 @@ public class TestTheHistory {
     public static void main(String[] args) {
         System.out.println("****** Functionality Tests - Array *******");
         runAllFunctionalityTests(new TheHistoryArray());
-        System.out.println("****** Functionality Tests - ArrayList *******");
-        runAllFunctionalityTests(new TheHistoryArrayList());
-        System.out.println("****** Functionality Tests - LinkedList *******");
-        runAllFunctionalityTests(new TheHistoryLinkedList());
+//        System.out.println("****** Functionality Tests - ArrayList *******");
+//        runAllFunctionalityTests(new TheHistoryArrayList());
+//        System.out.println("****** Functionality Tests - LinkedList *******");
+//        runAllFunctionalityTests(new TheHistoryLinkedList());
 
         System.out.println("****** Array Tests *******");
         runAllTests(new TheHistoryArray());
-        System.out.println("****** ArrayList Tests *******");
-        runAllTests(new TheHistoryArrayList());
-        System.out.println("****** LinkedList Tests *******");
-        runAllTests(new TheHistoryLinkedList());
+//        System.out.println("****** ArrayList Tests *******");
+//        runAllTests(new TheHistoryArrayList());
+//        System.out.println("****** LinkedList Tests *******");
+//        runAllTests(new TheHistoryLinkedList());
     }
 
 }
