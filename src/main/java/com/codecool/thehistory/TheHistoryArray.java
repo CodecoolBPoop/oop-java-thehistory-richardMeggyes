@@ -31,6 +31,28 @@ public class TheHistoryArray implements TheHistory {
 
     @Override
     public void removeWord(String wordToBeRemoved) {
+        System.out.println("SIZE BEFORE:" + size());
+
+        String[] nA = new String[size()];
+        int nAPos = 0;
+        for (int x = 0; x < size() - 1; x++) {
+//            System.out.println("x" + x + " :" + this.wordsArray[x] + " :" + this.wordsArray.length + " :" + wordToBeRemoved);
+//            if (this.wordsArray[x] != null) {
+                if (this.wordsArray[x] != null && !this.wordsArray[x].equals(wordToBeRemoved)) {
+
+                    nA[nAPos] = this.wordsArray[x];
+                    nAPos++;
+//                String[] newArray = new String[size()];
+//                System.out.println("wAL:" + this.wordsArray.length + " newAL:"+ newArray.length);
+//                System.arraycopy(this.wordsArray, 0, newArray, 0, x);
+//                System.arraycopy(this.wordsArray, x + 1, newArray, x, this.wordsArray.length - x - 2);
+//                this.wordsArray = newArray;
+                }
+
+        }
+        this.wordsArray = nA;
+
+
 //MÉZI 479ms
 //        int position = indexOf(this.wordsArray, wordToBeRemoved);
 //        while (position > -1) {
@@ -43,13 +65,13 @@ public class TheHistoryArray implements TheHistory {
 //        }
 
         // 63-41ms
-        ArrayList<String> copy = new ArrayList<String>();
-        for (int x = 0; x < this.wordsArray.length; x++) {
-            if (this.wordsArray[x] != wordToBeRemoved) {
-                copy.add(this.wordsArray[x]);
-            }
-        }
-        this.wordsArray = copy.toArray(new String[0]);
+//        ArrayList<String> copy = new ArrayList<String>();
+//        for (int x = 0; x < this.wordsArray.length; x++) {
+//            if (!this.wordsArray[x].equals(wordToBeRemoved)) {
+//                copy.add(this.wordsArray[x]);
+//            }
+//        }
+//        this.wordsArray = copy.toArray(new String[0]);
 
 //        System.out.println("REMOVEWORD");
 //        Object[] objArray = { this.wordsArray };
@@ -64,6 +86,7 @@ public class TheHistoryArray implements TheHistory {
 //            }
 //        }
 //        this.wordsArray = copy.toArray(new String[0]);
+        System.out.println("SIZE AFTER:" + size());
     }
 
     @Override
@@ -80,13 +103,13 @@ public class TheHistoryArray implements TheHistory {
 
     @Override
     public void replaceOneWord(String from, String to) {
-        System.out.println("REPLACE_ONE " + from + " " + to);
+//        System.out.println("REPLACE_ONE " + from + " " + to);
         for (int i = 0; i < this.size(); i++) {
 //            System.out.println(this.wordsArray[i]);
             if (this.wordsArray[i].equals(from)) {
-                System.out.println("OLD VAL: "+this.wordsArray[i]);
+//                System.out.println("OLD VAL: " + this.wordsArray[i]);
                 this.wordsArray[i] = to;
-                System.out.println("NEW VAL: "+this.wordsArray[i]);
+//                System.out.println("NEW VAL: " + this.wordsArray[i]);
             }
         }
     }
